@@ -7,7 +7,7 @@ RETURN n
 ### Age and sex of the user with id = 1
 
 MATCH (n:User { id: 1 })
-RETURN n.age,n.sex
-### n.age	n.sex
+RETURN n.age as Age,n.sex as Gender
+### Age	Gender
 ###  24	M
 
