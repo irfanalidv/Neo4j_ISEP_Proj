@@ -40,3 +40,4 @@ LOAD CSV WITH HEADERS FROM 'file:///ratings.csv' AS ratings
 MERGE (u : User { id : toInt(ratings.user_id) })
 MERGE (m : Movie { id : toInt(ratings.mov_id) })
 CREATE (u)-[:RATED { note : toInt(ratings.rating), timestamp : toInt(ratings.timestamp) } ]->(m);
+###Set 22620 properties, created 11310 relationships, statement executed in 10778 ms.
