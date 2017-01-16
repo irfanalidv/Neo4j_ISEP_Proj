@@ -21,3 +21,12 @@ USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS FROM 'file:///genres.csv' AS genres
 CREATE (u:Genre {id : toInt(genres.id), name : genres.name});
 ###Added 19 labels, created 19 nodes, set 38 properties, statement executed in 475 ms.
+
+
+###Mov_Genre
+
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'file:///mov_genre.csv' AS mov_genre
+MERGE (m : Movie { id : toInt(mov_genre.mov_id) })
+MERGE (g : Genre { id : toInt(mov_genre.genre) })
+CREATE (m)-[:CATEGORIZED_AS]->(g);
