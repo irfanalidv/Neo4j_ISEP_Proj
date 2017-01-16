@@ -14,3 +14,9 @@ LOAD CSV WITH HEADERS FROM 'file:///movies.csv' AS movies
 CREATE (m:Movie {id : toInt(movies.id), title : movies.title, date :
 toInt(movies.date)});
 ###Added 400 labels, created 400 nodes, set 1108 properties, statement executed in 377 ms.
+
+##Genres Data Set
+
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'file:///genres.csv' AS genres
+CREATE (u:Genre {id : toInt(genres.id), name : genres.name});
