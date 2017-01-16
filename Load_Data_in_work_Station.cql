@@ -30,3 +30,4 @@ LOAD CSV WITH HEADERS FROM 'file:///mov_genre.csv' AS mov_genre
 MERGE (m : Movie { id : toInt(mov_genre.mov_id) })
 MERGE (g : Genre { id : toInt(mov_genre.genre) })
 CREATE (m)-[:CATEGORIZED_AS]->(g);
+###Created 834 relationships, statement executed in 1761 ms.
