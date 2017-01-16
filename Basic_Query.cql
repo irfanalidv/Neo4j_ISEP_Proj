@@ -24,3 +24,10 @@ MATCH (n:User {sex:'F'})
 WHERE n.occupation STARTS WITH 'arti' OR n.occupation='writer'
 RETURN n
 ### User 6
+
+### Average age of students in the database
+
+MATCH (n:User {occupation:'student'})
+RETURN avg(n.age) as Avg_Age_Student
+### Avg_Age_Student
+### 23.193548387096776
