@@ -11,3 +11,7 @@ RETURN n.age as Age,n.sex as Gender
 ### Age	Gender
 ###  24	M
 
+### Return the female users that are either writer or artist.
+
+
+
