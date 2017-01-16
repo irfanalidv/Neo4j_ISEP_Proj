@@ -11,7 +11,9 @@ RETURN n.age as Age,n.sex as Gender
 ### Age	Gender
 ###  24	M
 
-### Return the female users that are either writer or artist.
+### Women are artists (artist)
 
-
-
+MATCH (n:User {sex:'F'})
+WHERE n.occupation STARTS WITH 'arti'
+RETURN n
+### User 5
