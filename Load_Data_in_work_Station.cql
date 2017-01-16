@@ -6,3 +6,9 @@ CREATE (u:User {id : toInt(users.id), sex : users.sex, age :
 toInt(users.age), occupation : users.occupation, zip_code :
 users.zip_code});
 
+##Movies Data Set
+
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'file:///movies.csv' AS movies
+CREATE (m:Movie {id : toInt(movies.id), title : movies.title, date :
+toInt(movies.date)});
