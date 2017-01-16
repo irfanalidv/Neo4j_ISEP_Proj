@@ -23,7 +23,7 @@ CREATE (u:Genre {id : toInt(genres.id), name : genres.name});
 ###Added 19 labels, created 19 nodes, set 38 properties, statement executed in 475 ms.
 
 
-###Mov_Genre
+###Mov_Genre Data Set
 
 USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS FROM 'file:///mov_genre.csv' AS mov_genre
@@ -31,3 +31,12 @@ MERGE (m : Movie { id : toInt(mov_genre.mov_id) })
 MERGE (g : Genre { id : toInt(mov_genre.genre) })
 CREATE (m)-[:CATEGORIZED_AS]->(g);
 ###Created 834 relationships, statement executed in 1761 ms.
+
+
+###Rating Data Set
+
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'file:///ratings.csv' AS ratings
+MERGE (u : User { id : toInt(ratings.user_id) })
+MERGE (m : Movie { id : toInt(ratings.mov_id) })
+CREATE (u)-[:RATED { note : toInt(ratings.rating), timestamp : toInt(ratings.timestamp) } ]->(m);
