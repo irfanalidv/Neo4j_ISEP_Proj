@@ -41,3 +41,11 @@ MERGE (u : User { id : toInt(ratings.user_id) })
 MERGE (m : Movie { id : toInt(ratings.mov_id) })
 CREATE (u)-[:RATED { note : toInt(ratings.rating), timestamp : toInt(ratings.timestamp) } ]->(m);
 ###Set 22620 properties, created 11310 relationships, statement executed in 10778 ms.
+
+###Friend Data Set
+
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'file:///friends.csv' AS friends
+MERGE (u1:User { id : toInt(friends.user1_id) })
+MERGE (u2:User { id : toInt(friends.user2_id) })
+CREATE (u1)-[:FRIEND_OF]->(u2);
