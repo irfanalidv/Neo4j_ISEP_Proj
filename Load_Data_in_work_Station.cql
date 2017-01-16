@@ -49,3 +49,4 @@ LOAD CSV WITH HEADERS FROM 'file:///friends.csv' AS friends
 MERGE (u1:User { id : toInt(friends.user1_id) })
 MERGE (u2:User { id : toInt(friends.user2_id) })
 CREATE (u1)-[:FRIEND_OF]->(u2);
+###Created 800 relationships, statement executed in 556 ms.
