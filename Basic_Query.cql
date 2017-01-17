@@ -53,3 +53,10 @@ RETURN n.occupation as Occupation, count(n.occupation) as Count
 ORDER BY Count DESC
 LIMIT 5
 ### See output in console
+
+### Total Occupation
+
+MATCH (n:User)
+RETURN count(DISTINCT n.occupation) as Total_Occupation
+### Total_Occupation
+###     21
