@@ -31,3 +31,19 @@ MATCH (n:User {occupation:'student'})
 RETURN avg(n.age) as Avg_Age_Student
 ### Avg_Age_Student
 ### 23.193548387096776
+
+###  Average age of users for each occupation 
+
+MATCH (n:User)
+RETURN n.occupation as Occupation, avg(n.age) as AVG_Age
+ORDER BY AVG_Age DESC
+LIMIT 10
+### See output in console
+
+### The number of users for each occupation 
+
+MATCH (n:User)
+RETURN n.occupation as Occupation, count(n.occupation) as Count
+ORDER BY Count DESC
+LIMIT 10
+### See output in console
